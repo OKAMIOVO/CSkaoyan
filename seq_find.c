@@ -63,7 +63,7 @@ int main(){
     int t = LocateElem(L,3);
     printf("location = %d\n",t);
 
-    system("pause");
+    //system("pause");
     return 0;
 
 }
