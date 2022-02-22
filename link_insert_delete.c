@@ -1,4 +1,4 @@
-//单链表的插入、删除
+//锟斤拷锟斤拷锟斤拷锟侥诧拷锟诫、删锟斤拷
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,11 +11,11 @@ typedef struct LNode{
     struct LNode *next;
 }LNode,*LinkList;
 
-//带头结点的单链表
+//锟斤拷头锟斤拷锟侥碉拷锟斤拷锟斤拷
 LinkList InitList(LinkList L){
-    L = (LNode *)malloc(sizeof(LNode));     //头节点
+    L = (LNode *)malloc(sizeof(LNode));     //头锟节碉拷
     L->data = 999;
-    if(L == NULL){                          //内存分配不足
+    if(L == NULL){                          //锟节达拷锟斤拷洳伙拷锟?
         printf("L == NULL\n");
         return false;
     }
@@ -30,13 +30,13 @@ bool Empty(LinkList L){
         return false;
 }
 
-//按位序插入
-bool LinkInsert(LinkList L,int i,int e){    //在第i个位置上插入元素e
+//锟斤拷位锟斤拷锟斤拷锟?
+bool LinkInsert(LinkList L,int i,int e){    
     if(i < 1)
         return false;
-    LNode *p;       //指针p指向当前扫描到的节点
-    int j = 0;      //指针p指向的是第几个节点
-    p = L;          //L指向头节点，头节点是第0个节点
+    LNode *p;       //指锟斤拷p指锟斤拷前扫锟借到锟侥节碉拷
+    int j = 0;      //指锟斤拷p指锟斤拷锟斤拷堑诩锟斤拷锟斤拷诘锟?
+    p = L;          //L指锟斤拷头锟节点，头锟节碉拷锟角碉拷0锟斤拷锟节碉拷
     while(p != NULL && j < i -1){
         p = p->next;
         j++;
@@ -50,13 +50,13 @@ bool LinkInsert(LinkList L,int i,int e){    //在第i个位置上插入元素e
     return true;
 }
 
-//按位序删除(带头结点)
+//锟斤拷位锟斤拷删锟斤拷(锟斤拷头锟斤拷锟?)
 bool ListDelete(LinkList L,int i,int *e){
     if(i < 1)
         return false;
-    LNode *p;       //指针p指向当前扫描到的节点
-    int j = 0;      //指针p指向的是第几个节点
-    p = L;          //L指向头节点，头节点是第0个节点
+    LNode *p;       //指锟斤拷p指锟斤拷前扫锟借到锟侥节碉拷
+    int j = 0;      //指锟斤拷p指锟斤拷锟斤拷堑诩锟斤拷锟斤拷诘锟?
+    p = L;          //L指锟斤拷头锟节点，头锟节碉拷锟角碉拷0锟斤拷锟节碉拷
     while(p != NULL && j < i -1){
         p = p->next;
         j++;
@@ -73,12 +73,12 @@ bool ListDelete(LinkList L,int i,int *e){
     
 }
 
-//删除指定节点p
+//删锟斤拷指锟斤拷锟节碉拷p
 bool DeleteNode(LNode *p){
     if(p == NULL)
         return false;
     LNode *q = p->next;
-    p->data = p->next->data;    //此处有bug
+    p->data = p->next->data;    
     p->next = q->next;
     free(q);
     return true;
@@ -96,14 +96,12 @@ int main(){
         printf("fail!\n");
     int e = -1;
     if (ListDelete(L,3,&e))
-        printf("已删除元素，删除元素值为%d\n",e);
+        printf("锟斤拷删锟斤拷元锟截拷删锟斤拷元锟斤拷值为%d\n",e);
     else
-        printf("位序不合法，删除失败!\n");
+        printf("位锟津不合凤拷锟斤拷删锟斤拷失锟斤拷!\n");
         
     
-    system("pause");
+    //system("pause");
     return 0;
     
 }
-docker run -d --name=OKAMI -e PASSWORD=root -e SUDO_PASSWORD=root -p 8443:8443 --restart unless-stopped ghcr.io/linuxserver/code-server
-https://github.com/coder/code-server/releases/download/v4.0.2/code-server-4.0.2-linux-amd64.tar.gz
