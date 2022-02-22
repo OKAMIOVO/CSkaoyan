@@ -1,4 +1,4 @@
-//�������Ĳ��롢ɾ��
+//单链表的插入、删除
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,11 +11,11 @@ typedef struct LNode{
     struct LNode *next;
 }LNode,*LinkList;
 
-//��ͷ���ĵ�����
+//带头结点的单链表
 LinkList InitList(LinkList L){
-    L = (LNode *)malloc(sizeof(LNode));     //ͷ�ڵ�
+    L = (LNode *)malloc(sizeof(LNode));     //头节点
     L->data = 999;
-    if(L == NULL){                          //�ڴ���䲻��?
+    if(L == NULL){                          //内存分配不足
         printf("L == NULL\n");
         return false;
     }
@@ -30,13 +30,13 @@ bool Empty(LinkList L){
         return false;
 }
 
-//��λ�����?
-bool LinkInsert(LinkList L,int i,int e){    
+//按位序插入
+bool LinkInsert(LinkList L,int i,int e){    //在第i个位置上插入元素e
     if(i < 1)
         return false;
-    LNode *p;       //ָ��pָ��ǰɨ�赽�Ľڵ�
-    int j = 0;      //ָ��pָ����ǵڼ����ڵ�?
-    p = L;          //Lָ��ͷ�ڵ㣬ͷ�ڵ��ǵ�0���ڵ�
+    LNode *p;       //指针p指向当前扫描到的节点
+    int j = 0;      //指针p指向的是第几个节点
+    p = L;          //L指向头节点，头节点是第0个节点
     while(p != NULL && j < i -1){
         p = p->next;
         j++;
@@ -50,13 +50,13 @@ bool LinkInsert(LinkList L,int i,int e){
     return true;
 }
 
-//��λ��ɾ��(��ͷ���?)
+//按位序删除(带头结点)
 bool ListDelete(LinkList L,int i,int *e){
     if(i < 1)
         return false;
-    LNode *p;       //ָ��pָ��ǰɨ�赽�Ľڵ�
-    int j = 0;      //ָ��pָ����ǵڼ����ڵ�?
-    p = L;          //Lָ��ͷ�ڵ㣬ͷ�ڵ��ǵ�0���ڵ�
+    LNode *p;       //指针p指向当前扫描到的节点
+    int j = 0;      //指针p指向的是第几个节点
+    p = L;          //L指向头节点，头节点是第0个节点
     while(p != NULL && j < i -1){
         p = p->next;
         j++;
@@ -73,12 +73,12 @@ bool ListDelete(LinkList L,int i,int *e){
     
 }
 
-//ɾ��ָ���ڵ�p
+//删除指定节点
 bool DeleteNode(LNode *p){
     if(p == NULL)
         return false;
     LNode *q = p->next;
-    p->data = p->next->data;    
+    p->data = p->next->data;  //此处有bug  
     p->next = q->next;
     free(q);
     return true;
@@ -95,10 +95,10 @@ int main(){
     else
         printf("fail!\n");
     int e = -1;
-    if (ListDelete(L,3,&e))
-        printf("��ɾ��Ԫ�ؿ�ɾ��Ԫ��ֵΪ%d\n",e);
+    if (ListDelete(L,1,&e))
+        printf("已删除元素，删除元素值为%d\n",e);
     else
-        printf("λ�򲻺Ϸ���ɾ��ʧ��!\n");
+        printf("位序不合法，删除失败!\n");
         
     
     //system("pause");
