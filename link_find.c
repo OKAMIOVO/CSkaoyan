@@ -70,7 +70,7 @@ bool ListDelete(LinkList L,int i,int *e){
     p->next = q->next;
     free(q);
     return true;
-    
+
 }
 //按位查找，返回第i个元素（带头结点）
 LNode*  GetElem(LinkList L,int i){
@@ -123,7 +123,6 @@ int main(){
 
     int len = Length(L);
     printf("表的长度为%d\n",len);
-
 	
     return 0;
 }
