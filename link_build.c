@@ -87,7 +87,7 @@ int main(){
 		t = t->next;
 		printf("%d ",t->data);
 	}
-	printf("\n");
+	printf("\n"); 
 
 	return 0;
 }
