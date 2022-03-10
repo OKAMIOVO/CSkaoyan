@@ -1,4 +1,4 @@
-//Ë³Ğò±íµÄ²åÈëÉ¾³ı
+//é¡ºåºè¡¨çš„æ’å…¥åˆ é™¤
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,9 +18,9 @@ void InitList(SqList *L){
 }
 
 bool ListInsert(SqList *L,int i,int e){
-    if(i < 1||i > MaxSize)      //ÅĞ¶ÏiµÄÖµµÄÓĞĞ§·¶Î§
+    if(i < 1||i > MaxSize)      //åˆ¤æ–­içš„å€¼çš„æœ‰æ•ˆèŒƒå›´
         return false;
-    if(L->length >= MaxSize)    //µ±Ç°´æ´¢¿Õ¼äÒÑÂú£¬²»ÄÜ·ÅÈë
+    if(L->length >= MaxSize)    //å½“å‰å­˜å‚¨ç©ºé—´å·²æ»¡ï¼Œä¸èƒ½æ”¾å…¥
         return false;
     for(int j = L->length;j >= i;j--)
         L->data[j] = L->data[j-1];
@@ -31,7 +31,7 @@ bool ListInsert(SqList *L,int i,int e){
 }
 
 bool ListDelete(SqList *L,int i,int *e){
-    if(i < 1||i > MaxSize)      //ÅĞ¶ÏiµÄÖµµÄÓĞĞ§·¶Î§
+    if(i < 1||i > MaxSize)      //åˆ¤æ–­içš„å€¼çš„æœ‰æ•ˆèŒƒå›´
         return false;
     *e = L->data[i-1];
     for(int j = i;j<L->length;j++)
@@ -52,9 +52,9 @@ int main(){
     }
     int e = -1;
     if (ListDelete(&L,3,&e))
-        printf("ÒÑÉ¾³ıµÚ3¸öÔªËØ£¬É¾³ıÔªËØÖµÎª%d\n",e);
+        printf("å·²åˆ é™¤ç¬¬3ä¸ªå…ƒç´ ï¼Œåˆ é™¤å…ƒç´ å€¼ä¸º%d\n",e);
     else
-        printf("Î»Ğò²»ºÏ·¨£¬É¾³ıÊ§°Ü£¡\n");
+        printf("ä½åºä¸åˆæ³•ï¼Œåˆ é™¤å¤±è´¥!\n");
         
     for(int i = 0;i < L.length; i++)
         printf("data[%d] = %d\n",i,L.data[i]);
