@@ -72,7 +72,12 @@ bool List_HeadInsert(LinkList L){
 	return true;
 
 }
-
+/*
+头插法和尾插法的一个小细节:
+	尾插法最后需要返回指针是因为尾插法在其函数体中新建立了一个L，指向一个头结点，
+	和初始化的L指向不一样，main函数中的L是初始化的L，和尾插法的L不一样，所以需要返回L
+	而头插法没有建立新的头结点，所以不需要返回L。
+*/
 int main(){
     LinkList L;
     L = InitList(L);
