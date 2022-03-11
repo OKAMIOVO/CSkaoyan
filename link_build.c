@@ -57,7 +57,7 @@ LinkList List_TailInsert(LinkList L){
 }
 
 //头插法建立单链表(逆向)
-LinkList List_HeadInsert(LinkList L){
+bool List_HeadInsert(LinkList L){
 	LNode *s;
 	int x;
 	L->next = NULL;		//初始化为空链表
@@ -69,7 +69,7 @@ LinkList List_HeadInsert(LinkList L){
 		L->next = s;	//将新结点插入表中，L 为头指针
 		scanf("%d",&x);
 	}
-	return L;
+	return true;
 
 }
 
@@ -77,15 +77,15 @@ int main(){
     LinkList L;
     L = InitList(L);
     //printf("%d\n",t);
-	//LinkList p = List_TailInsert(L);
-	/**while(p->next != NULL){
-		p = p->next;
+	/*LinkList p = List_TailInsert(L);
+	while(p->next != NULL){
+		p = L->next;
 		printf("%d ",p->data);
-	}**/
-	LinkList t = List_HeadInsert(L);
-	while(t->next != NULL){
-		t = t->next;
-		printf("%d ",t->data);
+	}*/
+	List_HeadInsert(L);
+	while(L->next != NULL){
+		L = L->next;
+		printf("%d ",L->data);
 	}
 	printf("\n"); 
 
