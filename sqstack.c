@@ -15,6 +15,8 @@ typedef struct{
 //初始化栈
 SqStack* InitStack(SqStack *S){
     S = (SqStack*)malloc(sizeof(SqStack));
+    if(S==NULL)          //内存不足，分配失败
+        return false;
     S->top = -1;         //初始化栈顶指针
     return S;
 }
