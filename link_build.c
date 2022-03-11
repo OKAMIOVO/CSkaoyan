@@ -77,16 +77,16 @@ int main(){
     LinkList L;
     L = InitList(L);
     //printf("%d\n",t);
-	/*LinkList p = List_TailInsert(L);
+	LinkList p = List_TailInsert(L);
 	while(p->next != NULL){
-		p = L->next;
+		p = p->next;
 		printf("%d ",p->data);
-	}*/
-	List_HeadInsert(L);
+	}
+	/*List_HeadInsert(L);
 	while(L->next != NULL){
 		L = L->next;
 		printf("%d ",L->data);
-	}
+	}*/
 	printf("\n"); 
 
 	return 0;
