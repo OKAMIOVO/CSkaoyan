@@ -45,7 +45,7 @@ bool Pop(SqStack *S,int *x){
         return false;
     *x = S->data[S->top];          //元素先出栈
     S->top = S->top - 1;           //指针再减1
-    //x = 等价:S.data[S.top--]
+    //等价:x = S.data[S.top--]
     return true; 
 }
 
