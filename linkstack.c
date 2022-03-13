@@ -68,6 +68,7 @@ int main(){
     //Empty(top);
     int e = -1; 
     top = Push(top,e);
+    top = Push(top,3);
     int x = 0;
     GetTop(top,x);
     int t = -2;
