@@ -49,7 +49,7 @@ void EnQueue(LinkQueue &Q,int x){
 }
 
 //入队（不带头结点）
-/*void EnQueue(LinkQueue Q,int x){
+/*void EnQueue(LinkQueue &Q,int x){
     LinkNode *s = (LinkNode *)malloc(sizeof(LinkNode));
     s->data = x;
     s->next = NULL;
@@ -80,7 +80,7 @@ bool DeQueue(LinkQueue &Q,int x){
 }
 
 //队头元素出队（不带头结点）
-/*bool DeQueue(LinkQueue Q,int x){
+/*bool DeQueue(LinkQueue &Q,int x){
     if(Q.front == NULL){
         printf("队空!\n");
         return false;
