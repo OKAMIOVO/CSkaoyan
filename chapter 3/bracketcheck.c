@@ -52,14 +52,15 @@ bool Push(SqStack *S,char x){
 }
 
 //出栈操作
-char Pop(SqStack *S,char x){
+bool Pop(SqStack *S,char *x){
     if(S->top == -1)             //栈空，报错
         return false;
-    x = S->data[S->top];          //元素先出栈
+    *x = S->data[S->top];          //元素先出栈
     S->top = S->top - 1;           //指针再减1
     //等价:x = S.data[S.top--]
-    printf("元素%c出栈成功!\n",x);
-    return x; 
+    printf("元素%c出栈成功!\n",*x);
+    return true; 
+    //也可以用返回值返回x的值，修改函数返回值类型为char，然后return，就不需要用指针了
 }
 
 //读栈顶元素
@@ -83,18 +84,18 @@ bool bracketCheck(char str[],int length){
                 printf("匹配失败!\n");
                 return false;   //匹配失败
             }
-
-            char topElem;
-            topElem = Pop(S,topElem);     //栈顶元素出栈
-            if(str[i]==')'&&topElem!='('){
+            char c = 'c';
+            char* topElem = &c;
+            Pop(S,topElem);     //栈顶元素出栈
+            if(str[i]==')'&&*topElem!='('){
                 printf("匹配失败!\n");
                 return false;
             }
-            if(str[i]==']'&&topElem!='['){
+            if(str[i]==']'&&*topElem!='['){
                 printf("匹配失败!\n");
                 return false;
             }
-            if(str[i]=='}'&&topElem!='{'){
+            if(str[i]=='}'&&*topElem!='{'){
                 printf("匹配失败!\n");
                 return false;
             }
