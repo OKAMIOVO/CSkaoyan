@@ -125,6 +125,8 @@ int main(){
 		printf("S中不存在与T相等的子串!\n");
 	}
 
+/* 不能用free函数free非malloc的内存 */
+/* 对于内存释放还必须保证只释放动态分配的内存，即不能用 free 来释放非 malloc、realloc、calloc 与 aligned_alloc 等内存分配函数分配的内存空间 */
 	free(Sub.ch);
 	Sub.ch = NULL;
 
