@@ -58,6 +58,7 @@ bool GetTop(LinkStack top,int e){
     }
     e = top->data;
     printf("栈顶元素为%d\n",e);
+    return true;
 
 }
 
