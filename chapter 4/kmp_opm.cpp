@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2022
  *
  */
+#include <cstddef>
 #include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,6 +47,8 @@ int* get_next(SString T, int next[]) {
     //int nextval[T.length+1]; 如果最后return nextval的话，这样的写法有问题，会警告，因为这个局部数组是存储在栈区的，使用完毕后会立即释放
     // 下面的动态分配解决了此问题，但是还要考虑内存泄漏问题，就是如何free掉这个申请的内存空间，可以借助一个辅助变量
     int *nextval = (int *)malloc(sizeof(int)*(T.length+1));
+    if(nextval == NULL)
+        printf("内存不足!");
     nextval[1] = 0;
     for (int k = 2; k <= T.length; k++) {
         if (T.ch[next[k]] == T.ch[k])
