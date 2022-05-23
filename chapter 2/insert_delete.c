@@ -46,7 +46,7 @@ int main(){
     bool j;
     for(int i = 1;i<MaxSize;i++){
         j = ListInsert(&L,i,i);
-        if(j = 0){
+        if(j == 0){
             printf("lose!!!\n");
         }
     }
