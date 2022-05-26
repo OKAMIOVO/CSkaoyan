@@ -81,7 +81,7 @@ int main() {
     SSTableInsert(T, 13, 187);
     SSTableInsert(T, 14, 234);
 
-    for (int j = 0; j <= T->TableLen; j++)
+    for (int j = 0; j < T->TableLen; j++)
         printf("%d\n", (T->elem)[j]);
 
     if ((Binary_search(*T, 20)) != -1) {
